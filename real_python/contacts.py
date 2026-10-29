@@ -1,3 +1,4 @@
+from representations import AsDictionaryMixin
 class AddressBook:
     def __init__(self):
         self._employee_addresses = {
@@ -13,7 +14,7 @@ class AddressBook:
             raise ValueError('Invalid employee_id')
         return employee_address
 
-class Address:
+class Address(AsDictionaryMixin):
     def __init__(self, street, city, state, zipcode, street2=None):
         self.street = street
         self.street2 = street2
