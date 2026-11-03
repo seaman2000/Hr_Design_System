@@ -1,21 +1,17 @@
-from hr import PayrollSystem, HourlyPolicy
-from productivity import ProductivitySystem
-from employees import EmployeeDatabase
 import json
 
-# productivity_system = ProductivitySystem()
-# payroll_system = PayrollSystem()
-# employee_database = EmployeeDatabase()
-# employees = employee_database.employees()
-#
-# manager = employees[0]
-# manager.payroll = HourlyPolicy(50)
-#
-# productivity_system.track(employees, 40)
-# payroll_system.calculate_payroll(employees)
+from hr import calculate_payroll
+from productivity import track
+from employees import employee_database, Employee
 
 def print_dict(d):
     print(json.dumps(d, indent=2))
 
-for employee in EmployeeDatabase().employees():
-    print_dict(employee.to_dict())
+employees = employee_database.employees()
+
+track(employees, 40)
+calculate_payroll(employees)
+
+temp_secretary = Employee(5)
+print('Temporary secretary:')
+print_dict(temp_secretary.to_dict())
