@@ -30,7 +30,7 @@ class Address(AsDictionaryMixin):
         lines.append(f'{self.city}, {self.state}, {self.zipcode}')
         return '\n'.join(lines)
 
-_address_book = _AddressBook
+_address_book = _AddressBook()
 
 def get_employee_address(employee_id):
     return _address_book.get_employee_address(employee_id)
